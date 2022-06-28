@@ -15,21 +15,6 @@ pipeline {
             }
 
             post{
-                  always {
-                     recordIssues tools: [gcc(pattern: 'myBuildLog.log')]
-                   }
-//                always{
-//                    //junit './target/surefire-reports/*xml'
-//                    junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
-//                    jacoco execPattern: 'target/*.exec', classPattern: 'target/classes', sourcePattern: 'src/main/java', exclusionPattern: 'src/test*'
-//
-//
-//                    recordIssues enabledForFailure: true, tools: [mavenConsole(), java(), javaDoc()]
-//                    recordIssues enabledForFailure: true, tool: checkStyle()
-//                    recordIssues enabledForFailure: true, tool: spotBugs()
-//                    recordIssues enabledForFailure: true, tool: cpd(pattern: '**/target/cpd.xml')
-//                    recordIssues enabledForFailure: true, tool: pmdParser(pattern: '**/target/pmd.xml')
-//                }
                 success {
                     archiveArtifacts artifacts: 'target/lab04-0.0.1-SNAPSHOT.jar', fingerprint: true, onlyIfSuccessful: true
                 }
