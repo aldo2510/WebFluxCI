@@ -1,5 +1,4 @@
 FROM openjdk:11-jre-slim
-
 VOLUME /tmp
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
